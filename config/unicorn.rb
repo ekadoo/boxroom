@@ -1,6 +1,6 @@
 require 'pathname'
 
-shared_path = File.join(Pathname.new(File.dirname(__FILE__)).realpath, '../../../../shared')
+shared_path = File.join(Pathname.new(File.dirname(__FILE__)).realpath, '../../../shared')
 
 listen '0.0.0.0:9000'
 worker_processes 4 # this should be >= nr_cpus
