@@ -20,3 +20,7 @@ end
 group :test do
   gem 'factory_girl_rails'
 end
+
+group :deployment do
+  gem 'rvm-capistrano'
+end
