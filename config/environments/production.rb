@@ -76,7 +76,7 @@ Boxroom::Application.configure do
     :domain => ENV['SMTP_DOMAIN'],
     :user_name => ENV['SMTP_USERNAME'],
     :password => ENV['SMTP_PASSWORD'],
-    :authentication => 'login',
+    :authentication => ENV['SMTP_AUTH'],
     :enable_starttls_auto => true
   }
 
