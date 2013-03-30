@@ -83,5 +83,5 @@ Boxroom::Application.configure do
   config.action_mailer.default_url_options = { :host => 'boxroom.ekadoo.net' }
 
   # From address
-  # ActionMailer::Base.default :from => 'Boxroom <dev@ekadoo.net>'
+  ActionMailer::Base.default :from => 'Boxroom <dev@ekadoo.net>'
 end
