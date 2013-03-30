@@ -12,16 +12,16 @@ set :repository,  "git@github.com:ekadoo/boxroom.git"
 # set :scm, :git # You can set :scm explicitly or Capistrano will make an intelligent guess based on known version control directory names
 # Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
 
-role :web, "gorbul.net"                          # Your HTTP server, Apache/etc
-role :app, "gorbul.net"                          # This may be the same as your `Web` server
-role :db,  "gorbul.net", :primary => true # This is where Rails migrations will db-server here"
+# role :web, "domain.com"                          # Your HTTP server, Apache/etc
+# role :app, "domain.com"                          # This may be the same as your `Web` server
+# role :db,  "domain.com", :primary => true # This is where Rails migrations will db-server here"
 
 # if you want to clean up old releases on each deploy uncomment this:
 after "deploy:restart", "deploy:cleanup"
 
-set :deploy_to, "/home/gorbuln/rails_apps/#{application}"
+set :deploy_to, "/home/#{ENV['DEPLOYER_USER']}/rails_apps/#{application}"
 
-set :user, 'gorbuln'
+set :user, ENV['DEPLOYER_USER']
 set :use_sudo, false
 set :ssh_options, {:forward_agent => true}
 
