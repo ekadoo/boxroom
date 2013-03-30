@@ -65,23 +65,24 @@ Boxroom::Application.configure do
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
 
-  config.action_mailer.delivery_method = :sendmail
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
 
   # Mail settings
-  # config.action_mailer.delivery_method = :smtp
-  # config.action_mailer.smtp_settings = {
-  #   :address => 'mailhost',
-  #   :port => 587,
-  #   :user_name => 'user_name',
-  #   :password => 'password',
-  #   :authentication => 'plain'
-  # }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :address => 'smtp.gmail.com',
+    :port => 587,
+    :domain => ENV['SMTP_DOMAIN'],
+    :user_name => ENV['SMTP_USERNAME'],
+    :password => ENV['SMTP_PASSWORD'],
+    :authentication => 'plain',
+    :enable_starttls_auto => true
+  }
 
   # Host
-  config.action_mailer.default_url_options = { :host => 'boxroom.ekadoo.net' }
+  config.action_mailer.default_url_options = { :host => ENV['DEFAULT_URL_HOST'] }
 
   # From address
-  ActionMailer::Base.default :from => 'Boxroom <dev@ekadoo.net>'
+  ActionMailer::Base.default :from => ENV['SMTP_EMAIL_FROM']
 end
